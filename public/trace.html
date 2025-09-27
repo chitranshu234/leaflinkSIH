@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trace Herb - LeafLink</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="aurora-background">
+        <div class="aurora-shape shape-1"></div>
+        <div class="aurora-shape shape-2"></div>
+        <div class="aurora-shape shape-3"></div>
+    </div>
+
+    <div class="login-container">
+        <div class="form-container trace-container">
+            <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+                <div class="logo-icon">🌿</div>
+                <span class="logo-text">LeafLink</span>
+            </div>
+            <h2 class="section-title">Verify Botanical Origin</h2>
+            <p class="section-subtitle">Enter the Traceability ID to view its collection record.</p>
+
+            <form id="trace-form" class="logging-form" style="margin-top: 2rem;">
+                <div class="form-group">
+                    <input type="text" id="herb-id-input" name="herbId" class="form-input" placeholder="e.g., LL-1701234567890" required>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Trace Herb</button>
+            </form>
+
+            <div id="results-container" class="results-wrapper" style="display: none;">
+                <h3 class="results-title">Collection Details</h3>
+                <div id="results-content">
+                    <div class="result-item"><strong>Herb Name:</strong> <span id="result-herb-name"></span></div>
+                    <div class="result-item"><strong>Botanical Name:</strong> <span id="result-botanical-name"></span></div>
+                    <div class="result-item"><strong>Collector:</strong> <span id="result-collector-name"></span></div>
+                    <div class="result-item"><strong>GPS Coordinates:</strong> <span id="result-gps"></span></div>
+                    <div class="result-item"><strong>Collection Date:</strong> <span id="result-date"></span></div>
+                    <div class="result-item notes">
+                        <strong>Quality Notes:</strong>
+                        <p id="result-notes"></p>
+                    </div>
+                </div>
+                <div id="error-message" style="display: none;"></div>
+            </div>
+             <p class="form-footer-text" style="margin-top: 2rem;"><a href="index.html">← Back to Home</a></p>
+        </div>
+    </div>
+
+    <script src="js/trace.js"></script>
+</body>
+</html>

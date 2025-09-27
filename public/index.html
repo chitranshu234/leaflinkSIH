@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeafLink - Herb Collection Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="aurora-background">
+        <div class="aurora-shape shape-1"></div>
+        <div class="aurora-shape shape-2"></div>
+        <div class="aurora-shape shape-3"></div>
+    </div>
+
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🌿</div>
+                <span class="logo-text">LeafLink</span>
+            </a>
+            <nav class="nav" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#log-batch" class="nav-link">Log Batch</a></li>
+                    <li><a href="trace.html" class="nav-link">Trace Herb</a></li>
+                    <li><a href="login.html" class="nav-link">Login</a></li>
+                    <li class="cta-mobile-link"><a href="#log-batch" class="nav-link">Log New Batch</a></li>
+                </ul>
+            </nav>
+            <a href="#log-batch" class="cta-nav-btn">
+                <span>Log New Batch</span>
+            </a>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span>✨ Next-Gen Botanical Tracking</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Secure & Traceable
+                        <span class="title-highlight">Herb Collection</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Transforming medicinal herb collection with AI-powered traceability, precision GPS tracking, and blockchain-secured quality assurance.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#log-batch" class="btn btn-primary">Start Collection</a>
+                        <a href="#features" class="btn btn-secondary">Explore Features</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="visual-card">
+                          <div class="card-icon">📱</div>
+                          <h3>Smart Batch Logging</h3>
+                          <p>GPS tracking, AI quality analysis, and instant QR generation for complete transparency.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">The Future of Botanical Integrity</h2>
+                    <p class="section-subtitle">
+                        Cutting-edge technology meets traditional botanical wisdom for unprecedented quality control.
+                    </p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🗺️</div>
+                        <h3 class="feature-title">Precision GPS Tracking</h3>
+                        <p class="feature-description">Pinpoint accuracy with location verification for sustainable harvesting and authenticity.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🔬</div>
+                        <h3 class="feature-title">AI Quality Analysis</h3>
+                        <p class="feature-description">ML algorithms analyze quality parameters in real-time for instant validation.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🔗</div>
+                        <h3 class="feature-title">Blockchain Traceability</h3>
+                        <p class="feature-description">Immutable records ensure complete transparency and regulatory compliance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="batch-logging" id="log-batch">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Log Your Botanical Collection</h2>
+                    <p class="section-subtitle">Create a permanent, verifiable record on the blockchain in minutes.</p>
+                </div>
+                
+                <div class="form-container">
+                    <form id="herb-form" class="logging-form">
+                        <div class="form-group">
+                            <input type="text" id="herbName" name="herbName" class="form-input" placeholder="Herb Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="botanicalName" name="botanicalName" class="form-input" placeholder="Botanical Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="collectorName" name="collectorName" class="form-input" placeholder="Collector's Name" required>
+                        </div>
+                         <div class="form-group">
+                            <button type="button" id="getLocationBtn" class="btn btn-secondary full-width">📍 Get Current Location</button>
+                            <div id="locationDisplay" class="location-display-hidden">Location will be displayed here...</div>
+                            <input type="hidden" id="gpsCoordinates" name="gpsCoordinates">
+                        </div>
+                        <div class="form-group">
+                             <textarea id="qualityNotes" name="qualityNotes" class="form-input" placeholder="Quality assessment notes..." rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary full-width">Submit & Generate QR</button>
+                    </form>
+
+                    <div id="success-message" style="display: none;">
+                        <h3 class="success-title">Batch Logged!</h3>
+                        <p class="success-subtitle">Your record is secured on the blockchain.</p>
+                        <div class="qr-container">
+                            <div id="qrcode"></div>
+                            <div id="new-herb-id" class="herb-id-display"></div>
+                        </div>
+                        <button id="log-another-btn" type="button" class="btn btn-secondary">Log Another Batch</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 LeafLink. Built for SIH 2024 Hackathon.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
