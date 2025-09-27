@@ -36,16 +36,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultDate = document.getElementById('result-date');
     const resultNotes = document.getElementById('result-notes');
 
-
     // --- Form Submission Logic ---
     if (traceForm) {
-        traceForm.addEventListener('submit', (e) => {
+        traceForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const searchId = herbIdInput.value.trim();
-            const record = mockDatabase[searchId];
+            let record = mockDatabase[searchId];
 
             // Show the main results container regardless
             resultsContainer.style.display = 'block';
+
+            // If not found in mockDatabase, try API call
+            if (!record) {
+                try {
+                    const requestOptions = {
+                        method: "GET",
+                        redirect: "follow"
+                    };
+                    // You may want to use searchId in the API URL if your backend supports it
+                    const response = await fetch("http://localhost:3000/api/herbs/68d7a92c35d59c7b53cde096", requestOptions);
+                    const result = await response.json().catch(() => null);
+
+                    if (result && (result.herbName || result.botanicalName)) {
+                        // Assume the API returns a similar structure
+                        record = {
+                            herbName: result.herbName || "",
+                            botanicalName: result.botanicalName || "",
+                            collectorName: result.collectorName || "",
+                            gpsCoordinates: result.gpsCoordinates || "",
+                            timestamp: result.timestamp || "",
+                            qualityNotes: result.qualityNotes || ""
+                        };
+                    }
+                } catch (err) {
+                    // API error, do nothing here, will show error below
+                }
+            }
 
             if (record) {
                 // If record is found, show details and hide error
@@ -59,8 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 resultGps.textContent = record.gpsCoordinates;
                 resultNotes.textContent = record.qualityNotes;
                 // Format the date for better readability
-                resultDate.textContent = new Date(record.timestamp).toLocaleString();
-                
+                resultDate.textContent = record.timestamp
+                    ? new Date(record.timestamp).toLocaleString()
+                    : "";
+
             } else {
                 // If record is not found, hide details and show error
                 resultsContent.style.display = 'none';
