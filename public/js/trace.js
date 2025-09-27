@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const searchId = herbIdInput.value.trim();
             let record = mockDatabase[searchId];
+            console.log(searchId)
 
             // Show the main results container regardless
             resultsContainer.style.display = 'block';
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         redirect: "follow"
                     };
                     // You may want to use searchId in the API URL if your backend supports it
-                    const response = await fetch("http://localhost:3000/api/herbs/68d7a92c35d59c7b53cde096", requestOptions);
+                    const response = await fetch(`http://localhost:3000/api/herbs/${searchId}`, requestOptions);
                     const result = await response.json().catch(() => null);
 
                     if (result && (result.herbName || result.botanicalName)) {
