@@ -5,9 +5,14 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const Herb = require('./models/Herb'); // <-- IMPORT OUR HERB MODEL
+const cors = require('cors');
+
+
 
 // 2. Initialize the Express app
 const app = express();
+
+app.use(cors());
 
 // --- MIDDLEWARE ---
 app.use(express.json()); // <-- ENABLE SERVER TO READ JSON
