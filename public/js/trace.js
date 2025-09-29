@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         redirect: "follow"
                     };
                     // You may want to use searchId in the API URL if your backend supports it
-                    const response = await fetch(`http://localhost:3000/api/herbs/${searchId}`, requestOptions);
+                    const response = await fetch(`/api/herbs/${searchId}`, requestOptions);
                     const result = await response.json().catch(() => null);
 
                     if (result && (result.herbName || result.botanicalName)) {

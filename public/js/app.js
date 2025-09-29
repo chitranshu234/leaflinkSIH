@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let uniqueId = null;
       try {
-        const response = await fetch("http://localhost:3000/api/herbs", requestOptions);
+        const response = await fetch("/api/herbs", requestOptions);
         const result = await response.json().catch(() => null);
         // Try to get the id from the result, fallback to null if not present
         uniqueId = result && (result._id || result.id) ? (result._id || result.id) : null;
