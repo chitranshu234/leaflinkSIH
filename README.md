@@ -2,7 +2,7 @@
 
 LeafLink is a modern, web-based application designed to revolutionize the way medicinal herbs are tracked and managed. Built for transparency and authenticity, it leverages modern technology to bring precision, security, and traceability to the botanical collection process. The system allows collectors to log detailed information about each batch, including GPS data and quality notes, and secures this information using blockchain principles to ensure data integrity.
 
-This project was developed as a prototype for the SIH 2024 Hackathon.
+This project was developed as a prototype for the SIH 2025 Hackathon.
 
 ---
 
