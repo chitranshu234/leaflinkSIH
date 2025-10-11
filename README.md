@@ -29,7 +29,7 @@ You can view the live frontend prototype here:
 
 ## 🛠️ Technology Stack
 
--   **Frontend**: HTML5, CSS3, JavaScript
+-   **Frontend**: HTML5, CSS3, JavaScript, NodeJs
 -   **QR Code Generation**: `davidshimjs-qrcodejs` library
 -   **Deployment**: Vercel
 
