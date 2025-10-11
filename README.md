@@ -21,7 +21,7 @@ This project was developed as a prototype for the SIH 2024 Hackathon.
 
 You can view the live frontend prototype here:
 
-**URL**: [LeafLink](https://leaflinksihprototype.vercel.app/)
+ [LeafLink](https://leaflinksihprototype.vercel.app/)
 
 *Note: This is a frontend prototype. The connection to the backend server and blockchain functionality is currently a work in progress.*
 
